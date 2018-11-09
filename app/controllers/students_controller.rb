@@ -23,43 +23,37 @@ class StudentsController < ApplicationController
 
   # POST /students
   # POST /students.json
+
   def create
     @student = Student.new(student_params)
-
-    respond_to do |format|
-      if @student.save
-        format.html { redirect_to @student, notice: 'Student was successfully created.' }
-        format.json { render :show, status: :created, location: @student }
-      else
-        format.html { render :new }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+    if @student.save
+      flash[:success] = "Student was successfully created..."
+      redirect_to student_path(@student)
+    else
+      render 'new'
     end
   end
 
-  # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
   def update
-    respond_to do |format|
-      if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
-        format.json { render :show, status: :ok, location: @student }
-      else
-        format.html { render :edit }
-        format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+
+    if @student.update(student_params)
+      flash[:success] = "Student info was successfully updated"
+      redirect_to student_path(@student)
+    else
+      render 'edit'
     end
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.json
+
   def destroy
+
     @student.destroy
-    respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
+    flash[:danger] = "Student was successfully deleted"
+    redirect_to students_path
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
