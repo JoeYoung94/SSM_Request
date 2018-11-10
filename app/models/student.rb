@@ -1,4 +1,4 @@
 class Student < ApplicationRecord
   # add validates to student
-  validates :name, presence: true, length: {minimum: 3, maximum: 50}
+  validates :student_name, presence: true, uniqueness: true, length: {minimum: 3, maximum: 50}
 end
