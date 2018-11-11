@@ -5,8 +5,14 @@ FactoryBot.define do
   end
 
   factory :student do
-    student_name  {Faker::Name.name}
+    student_name  {Faker::Educator.university}
     school_id   {Faker::Number.between(1, 10)}
+  end
+
+  factory :crouse do
+    course_code   {Faker::Code.nric}
+    course_name   {Faker::Educator.course}
+    association :school
   end
 
 
