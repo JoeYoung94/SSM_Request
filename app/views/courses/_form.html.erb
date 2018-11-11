@@ -21,6 +21,12 @@
     <%= form.text_field :course_name %>
   </div>
 
+  <div class="field">
+    <%= form.collection_select :school_id, School.order(:school_name), :id, :school_name do |cb| %>
+      <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

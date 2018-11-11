@@ -9,7 +9,7 @@ FactoryBot.define do
     school_id   {Faker::Number.between(1, 10)}
   end
 
-  factory :crouse do
+  factory :course do
     course_code   {Faker::Code.nric}
     course_name   {Faker::Educator.course}
     association :school
