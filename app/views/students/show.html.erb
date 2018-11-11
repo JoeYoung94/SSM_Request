@@ -5,5 +5,10 @@
   <%= @student.student_name %>
 </p>
 
+<p>
+  <strong>School</strong>
+  <%= @assigned_school.school_name %>
+</p>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

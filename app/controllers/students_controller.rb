@@ -5,11 +5,14 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    @schooles = School.all
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
+    school_id = @student.school_id
+    @assigned_school = School.find(school_id)
   end
 
   # GET /students/new
@@ -63,6 +66,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:student_name)
+      params.require(:student).permit(:student_name, :school_id)
     end
 end

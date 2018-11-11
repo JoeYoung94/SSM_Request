@@ -1,0 +1,15 @@
+<%= render "shared/errors", obj: @school %>
+
+<%= form_with(model: school, local: true) do |form| %>
+
+
+
+  <div class="field">
+    <%= form.label :school_name %>
+    <%= form.text_field :school_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
