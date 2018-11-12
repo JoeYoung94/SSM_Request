@@ -1,0 +1,35 @@
+<h1>Request SSM for Student</h1>
+<p>SDCs: please fill in correct SDC name, select student name, and pick right course code</p>
+
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <label for="inputEmail4">SDC</label>
+      <input type="email" class="form-control" id="inputEmail4" placeholder="SDC name">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="inputPassword4">Student</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="select Student name">
+    </div>
+  </div>
+  <div class="form-group col-md-5">
+    <label for="inputAddress">School name</label>
+    <input type="password" class="form-control" id="inputAddress" placeholder="school name">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <label for="inputState">Course Code</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-5">
+      <label for="inputPassword4">Syllabus link</label>
+      <input type="password" class="form-control" id="inputPassword4" placeholder="please copy paste syllabus link">
+    </div>
+  </div>
+</form>
+
+<%= link_to "Request SSM", "#", class: "btn btn-primary btn-lg btn-xlarge" %> |
+<%= link_to 'home', root_path %>
