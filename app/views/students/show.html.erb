@@ -11,5 +11,12 @@
   <%= link_to 'Go to school link', school_path(@assigned_school) %>
 </p>
 
+<p><strong>Registered Courses:</strong></p>
+<ul>
+  <% @course_selection.each do |s| %>
+    <li><%= s.course_code %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

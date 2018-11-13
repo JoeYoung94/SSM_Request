@@ -15,6 +15,12 @@
     <% end %>
   </div>
 
+  <div class="field">
+    <%= form.collection_check_boxes :course_ids, Course.all, :id, :course_code do |cb| %>
+      <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
