@@ -17,3 +17,12 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+$(function() {
+    $("select#student_school_id").on("change", function() {
+        $.ajax({
+            url:  "/filter_courses_by_school",
+            type: "GET",
+            data: { selected_school: $("select#student_school_id").val() }
+        });
+    });
+});

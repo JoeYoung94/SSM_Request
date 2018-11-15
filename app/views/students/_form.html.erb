@@ -10,16 +10,16 @@
   </div>
 
   <div class="field">
-    <%= form.collection_select :school_id, School.order(:school_name), :id, :school_name do |cb| %>
-      <% cb.label {cb.check_box(class: "checkbox") + cb.text} %>
-    <% end %>
+    <%= form.label :school_id, "Select School the student attends" %><br />
+    <%= form.collection_select(:school_id, School.order(:school_name), :id, :school_name, {include_blank: true})  %>
   </div>
 
   <div class="field">
-    <%= form.collection_check_boxes :course_ids, Course.all, :id, :course_code do |cb| %>
-      <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
-    <% end %>
+    <%= form.label :course_ids, "Select Courses" %><br>
+    <%= form.collection_select(:course_ids, Course.all.where(school_id: :school_id), :id, :course_code, {include_blank: true}, {:multiple => true}) %>
   </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

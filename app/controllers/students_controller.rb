@@ -62,7 +62,9 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
-
+  def filter_courses_by_school
+    @filtered_courses = Course.where(school_id: params[:selected_school])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
