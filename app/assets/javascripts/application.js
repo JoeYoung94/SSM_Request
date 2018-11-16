@@ -26,3 +26,13 @@ $(function() {
         });
     });
 });
+
+$(function(){
+  $("select#supplementary_student_id").on("change", function() {
+      $.ajax({
+          url:  "/filter_courses_by_school_ssm",
+          type: "GET",
+          data: { selected_student: $("select#supplementary_student_id").val() }
+      });
+  });
+});

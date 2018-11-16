@@ -1,0 +1,29 @@
+<%= form_with(model: supplementary, local: true) do |form| %>
+  <% if supplementary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supplementary.errors.count, "error") %> prohibited this supplementary from being saved:</h2>
+
+      <ul>
+      <% supplementary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :student_id, "Select Student" %><br>
+    <%= form.collection_select :student_id, Student.all, :id, :student_name, { prompt: 'Please select' } %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :course_id, "Course for SSM" %><br>
+    <%= form.collection_select :course_id, Course.all, :id, :course_code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
